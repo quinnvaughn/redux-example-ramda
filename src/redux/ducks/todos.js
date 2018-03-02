@@ -39,7 +39,7 @@ export default handleActions(
       return R.evolve(
         {
           todos: R.map(
-            o => (o.id === index ? R.assoc('completed', true, o) : o)
+            o => (R.equals(o.id, index) ? R.assoc('completed', true, o) : o)
           )
         },
         state

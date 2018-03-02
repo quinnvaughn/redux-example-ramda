@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
 import {setVisibilityFilter} from '../redux/ducks/todos';
 import Link from '../components/Link';
+import * as R from 'ramda';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.filter === state.todosState.visibilityFilter
+    active: R.equals(ownProps.filter, state.todosState.visibilityFilter)
   };
 };
 
