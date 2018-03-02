@@ -63,9 +63,9 @@ export const getVisibleTodos = createSelector(
       case VisibilityFilters.SHOW_ALL:
         return todos;
       case VisibilityFilters.SHOW_COMPLETED:
-        return todos.filter(t => t.completed);
+        return R.filter(t => t.completed, todos);
       case VisibilityFilters.SHOW_ACTIVE:
-        return todos.filter(t => !t.completed);
+        return R.filter(t => !t.completed, todos);
     }
   }
 );
