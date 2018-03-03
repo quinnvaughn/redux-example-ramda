@@ -25,6 +25,7 @@ export const VisibilityFilters = {
 };
 
 //Reducer
+
 export default handleActions(
   {
     [addTodo](state, {payload: {text, id}}) {
@@ -39,7 +40,7 @@ export default handleActions(
       return R.evolve(
         {
           todos: R.map(
-            o => (R.equals(o.id, index) ? R.assoc('completed', true, o) : o)
+            R.when(R.propEq('id', index), R.assoc('completed', true))
           )
         },
         state
