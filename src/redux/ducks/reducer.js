@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import todosState from './todos';
+import todos from './todos';
 
 export default combineReducers({
-  todosState
+  todos
 });

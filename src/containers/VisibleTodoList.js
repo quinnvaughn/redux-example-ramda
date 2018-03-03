@@ -4,7 +4,7 @@ import TodoList from '../components/TodoList';
 
 const mapStateToProps = state => {
   return {
-    todos: getVisibleTodos(state.todosState)
+    todos: getVisibleTodos(state.todos)
   };
 };
 

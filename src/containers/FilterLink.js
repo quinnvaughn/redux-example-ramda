@@ -5,7 +5,7 @@ import * as R from 'ramda';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: R.equals(ownProps.filter, state.todosState.visibilityFilter)
+    active: R.equals(ownProps.filter, state.todos.visibilityFilter)
   };
 };
 
