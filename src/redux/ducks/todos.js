@@ -55,6 +55,8 @@ export default handleActions(
 //selectors
 const getVisibilityFilter = state => state.visibilityFilter;
 const getTodos = state => state.todos;
+const completed = R.filter(R.whereEq({completed: true}));
+const active = R.filter(R.whereEq({completed: false}));
 
 export const getVisibleTodos = createSelector(
   [getVisibilityFilter, getTodos],
@@ -63,9 +65,9 @@ export const getVisibleTodos = createSelector(
       case VisibilityFilters.SHOW_ALL:
         return todos;
       case VisibilityFilters.SHOW_COMPLETED:
-        return R.filter(t => t.completed, todos);
+        return completed(todos);
       case VisibilityFilters.SHOW_ACTIVE:
-        return R.filter(t => !t.completed, todos);
+        return active(todos);
     }
   }
 );
