@@ -53,8 +53,8 @@ export default handleActions(
 );
 
 //selectors
-const getVisibilityFilter = state => state.visibilityFilter;
-const getTodos = state => state.todos;
+const getVisibilityFilter = R.prop('visibilityFilter');
+const getTodos = R.prop('todos');
 const completed = R.filter(R.whereEq({completed: true}));
 const active = R.filter(R.whereEq({completed: false}));
 
