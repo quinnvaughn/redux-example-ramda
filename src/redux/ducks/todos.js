@@ -55,8 +55,8 @@ export default handleActions(
 //selectors
 const getVisibilityFilter = R.prop('visibilityFilter');
 const getTodos = R.prop('todos');
-const completed = R.filter(R.whereEq({completed: true}));
-const active = R.filter(R.whereEq({completed: false}));
+const completed = R.filter(R.propEq('completed', true));
+const active = R.filter(R.propEq('completed', true));
 
 export const getVisibleTodos = createSelector(
   [getVisibilityFilter, getTodos],
